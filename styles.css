@@ -4,45 +4,69 @@
   box-sizing: border-box;
 }
 html {
-  scroll-padding-top: 80px; /* Adjust to your navbar height */
+  scroll-padding-top: 80px; /* For navbar offset */
   scroll-behavior: smooth;
 }
-#logo {
-    width: 60px;
-    float: left;
-    margin-left: 7px;
-    margin-right: 5px;
-}
-header p {
-    float: left;
-    margin: 20px 0;
-    font-size: 1.2rem;
-    margin-right: 200px
-}
-header {
-    position: sticky;
-    top: 5px;
-    background-color: #e3e4e5;
-    border: 2px solid black;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-#homebutton {
-    padding: 5px 10px;
-    border-radius: 10px;
-    margin:  15px 0 15px 490px;
-    float: 10px;
-}
-#projectsbutton, #aboutbutton, #contactbutton {
-    padding: 5px 10px;
-    border-radius: 10px;
-    margin:  15px 0;
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-#homebutton:hover, #projectsbutton:hover, #aboutbutton:hover, #contactbutton:hover {
-    background-color: red;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: white;
+header {
+  position: sticky;
+  top: 5px;
+  background-color: #e3e4e5;
+  border: 2px solid black;
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between; /* logo/name on left, buttons on right */
+  align-items: center;
+  flex-wrap: nowrap; /* prevent wrapping */
+  overflow-x: auto;  /* allow horizontal scroll on small screens */
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-left {
+  display: flex;            /* make logo + text sit side by side */
+  align-items: center;      /* vertically align them */
+  gap: 8px;                 /* space between logo and text */
+}
+
+#logo {
+  display: inline-block;    /* ensure logo behaves like inline content */
+  width: 40px;              /* slightly smaller logo if needed */
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 10px;
+  flex: 0 0 auto;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px; /* spacing between buttons */
+}
+
+#homebutton,
+#projectsbutton,
+#aboutbutton,
+#contactbutton {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px;
+  flex: 0 0 auto;
+}
+
+#homebutton:hover,
+#projectsbutton:hover,
+#aboutbutton:hover,
+#contactbutton:hover {
+  background-color: red;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 #homepage {
     margin-top: -60px;
@@ -172,3 +196,82 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: white;
 } 
+
+
+@media (max-width: 768px) {
+  /* Navbar no longer sticky on mobile */
+  header {
+    position: sticky;
+    display: flex;
+    flex-direction: row; /* buttons side-by-side if possible */
+    flex-wrap: wrap; /* wrap if too narrow */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px; /* reduce navbar height */
+  }
+
+  #logo {
+    width: 40px; /* smaller logo */
+    margin: 5px;
+    float: none;
+  }
+
+  header p {
+    font-size: 0.9rem; /* smaller text */
+    margin: 5px;
+    float: none;
+  }
+
+  #homebutton,
+  #projectsbutton,
+  #aboutbutton,
+  #contactbutton {
+    font-size: 0.8rem; /* smaller button text */
+    padding: 4px 6px; /* smaller buttons */
+    margin: 3px;
+    width: auto; /* no unnecessary width */
+    display: inline-block;
+  }
+
+  /* About section: stack image and text vertically */
+  #about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #aboutText,
+  #sideImage {
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  #sideImage img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Projects section: stack project cards */
+  .project1,
+  .project2 {
+    width: 90%;
+    float: none;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  #projects img {
+    width: 90%;
+    height: auto;
+  }
+
+  /* Contact section: keep centered */
+  #contact {
+    padding: 20px;
+  }
+
+  #contactbuttonbottom {
+    width: 80%;
+    margin: 20px auto;
+  }
+}
