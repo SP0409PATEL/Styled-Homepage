@@ -1,78 +1,77 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 html {
-  scroll-padding-top: 80px; /* For navbar offset */
-  scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* For navbar offset */
+    scroll-behavior: smooth;
 }
 
 body {
-  max-width: 100%;
-  overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 header {
-  position: sticky;
-  top: 5px;
-  background-color: #e3e4e5;
-  border: 2px solid black;
-  margin: 0 10px;
-  display: flex;
-  justify-content: space-between; /* logo/name on left, buttons on right */
-  align-items: center;
-  flex-wrap: nowrap; /* prevent wrapping */
-  overflow-x: auto;  /* allow horizontal scroll on small screens */
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 5px;
+    background-color: #e3e4e5;
+    border: 2px solid black;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between; /* logo/name on left, buttons on right */
+    align-items: center;
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow-x: auto; /* allow horizontal scroll on small screens */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-left {
-  display: flex;            /* make logo + text sit side by side */
-  align-items: center;      /* vertically align them */
-  gap: 8px;                 /* space between logo and text */
+    display: flex; /* make logo + text sit side by side */
+    align-items: center; /* vertically align them */
+    gap: 8px; /* space between logo and text */
 }
 
 #logo {
-  display: inline-block;    /* ensure logo behaves like inline content */
-  width: 40px;              /* slightly smaller logo if needed */
+    display: inline-block; /* ensure logo behaves like inline content */
+    width: 40px; /* slightly smaller logo if needed */
 }
 
 header p {
-  font-size: 1.2rem;
-  margin: 10px;
-  flex: 0 0 auto;
+    font-size: 1.2rem;
+    margin: 10px;
+    flex: 0 0 auto;
 }
 
 .nav-buttons {
-  display: flex;
-  gap: 10px; /* spacing between buttons */
+    display: flex;
+    gap: 10px; /* spacing between buttons */
 }
 
 #homebutton,
 #projectsbutton,
 #aboutbutton,
 #contactbutton {
-  padding: 5px 10px;
-  border-radius: 10px;
-  margin: 5px;
-  flex: 0 0 auto;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 5px;
+    flex: 0 0 auto;
 }
 
 #homebutton:hover,
 #projectsbutton:hover,
 #aboutbutton:hover,
 #contactbutton:hover {
-  background-color: red;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: white;
+    background-color: red;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 #homepage {
     margin-top: -60px;
     padding-top: 60px;
 }
-
 
 #home {
     font-size: 1.25em;
@@ -129,26 +128,36 @@ header p {
     text-align: center;
     font-family: "Poppins";
     margin: -80px 0 0 0;
-    padding: 30px 0 400px 0;
+    padding: 30px 0 100px 0;
     width: 100%;
 }
-#projects img {
-    width: auto;
-    height: 200px;
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project {
+    flex: 1 1 280px;
     max-width: 300px;
-    margin: 20px;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#projects img {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
     border-radius: 10px;
 }
-.project1 {
-    float: left;
-    width: 45%;
-    margin: 0 20px 0 20px;
-}
-.project2 {
-    float: right;
-    width: 45%;
-    margin: 0 20px 0 20px;
-}
+
 #contact {
     background-color: #177ae3;
     font-size: 1.5em;
@@ -195,83 +204,82 @@ header p {
     background-color: #0c5eb5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: white;
-} 
-
+}
 
 @media (max-width: 768px) {
-  /* Navbar no longer sticky on mobile */
-  header {
-    position: sticky;
-    display: flex;
-    flex-direction: row; /* buttons side-by-side if possible */
-    flex-wrap: wrap; /* wrap if too narrow */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 5px; /* reduce navbar height */
-  }
+    /* Navbar no longer sticky on mobile */
+    header {
+        position: sticky;
+        display: flex;
+        flex-direction: row; /* buttons side-by-side if possible */
+        flex-wrap: wrap; /* wrap if too narrow */
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px; /* reduce navbar height */
+    }
 
-  #logo {
-    width: 40px; /* smaller logo */
-    margin: 5px;
-    float: none;
-  }
+    #logo {
+        width: 40px; /* smaller logo */
+        margin: 5px;
+        float: none;
+    }
 
-  header p {
-    font-size: 0.9rem; /* smaller text */
-    margin: 5px;
-    float: none;
-  }
+    header p {
+        font-size: 0.9rem; /* smaller text */
+        margin: 5px;
+        float: none;
+    }
 
-  #homebutton,
-  #projectsbutton,
-  #aboutbutton,
-  #contactbutton {
-    font-size: 0.8rem; /* smaller button text */
-    padding: 4px 6px; /* smaller buttons */
-    margin: 3px;
-    width: auto; /* no unnecessary width */
-    display: inline-block;
-  }
+    #homebutton,
+    #projectsbutton,
+    #aboutbutton,
+    #contactbutton {
+        font-size: 0.8rem; /* smaller button text */
+        padding: 4px 6px; /* smaller buttons */
+        margin: 3px;
+        width: auto; /* no unnecessary width */
+        display: inline-block;
+    }
 
-  /* About section: stack image and text vertically */
-  #about {
-    flex-direction: column;
-    text-align: center;
-  }
+    /* About section: stack image and text vertically */
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  #aboutText,
-  #sideImage {
-    width: 90%;
-    margin: 15px auto;
-  }
+    #aboutText,
+    #sideImage {
+        width: 90%;
+        margin: 15px auto;
+    }
 
-  #sideImage img {
-    width: 100%;
-    height: auto;
-  }
+    #sideImage img {
+        width: 100%;
+        height: auto;
+    }
 
-  /* Projects section: stack project cards */
-  .project1,
-  .project2 {
-    width: 90%;
-    float: none;
-    margin: 20px auto;
-    text-align: center;
-  }
+    /* Projects section: stack project cards */
+    .project1,
+    .project2 {
+        width: 90%;
+        float: none;
+        margin: 20px auto;
+        text-align: center;
+    }
 
-  #projects img {
-    width: 90%;
-    height: auto;
-  }
+    #projects img {
+        width: 90%;
+        height: auto;
+    }
 
-  /* Contact section: keep centered */
-  #contact {
-    padding: 20px;
-  }
+    /* Contact section: keep centered */
+    #contact {
+        padding: 20px;
+    }
 
-  #contactbuttonbottom {
-    width: 80%;
-    margin: 20px auto;
-  }
+    #contactbuttonbottom {
+        width: 80%;
+        margin: 20px auto;
+    }
 }
